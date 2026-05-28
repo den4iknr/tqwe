@@ -1,0 +1,26 @@
+<api type="debug" assembly-name="Xamarin.AndroidX.SavedState" mvid="c537d33ee7ce45ec8f3f50fc6d245f6a">
+  <java-to-managed>
+    <entry java-name="androidx/savedstate/SavedStateRegistryOwner" managed-name="AndroidX.SavedState.ISavedStateRegistryOwner, Xamarin.AndroidX.SavedState" skip-in-java-to-managed="True" managed-type-token-id="33554437" />
+    <entry java-name="androidx/savedstate/SavedStateRegistryOwner" managed-name="AndroidX.SavedState.ISavedStateRegistryOwnerInvoker, Xamarin.AndroidX.SavedState" managed-type-token-id="33554438" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry" managed-name="AndroidX.SavedState.SavedStateRegistry, Xamarin.AndroidX.SavedState" managed-type-token-id="33554439" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$AutoRecreated" managed-name="AndroidX.SavedState.SavedStateRegistry+IAutoRecreated, Xamarin.AndroidX.SavedState" skip-in-java-to-managed="True" managed-type-token-id="33554443" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$AutoRecreated" managed-name="AndroidX.SavedState.SavedStateRegistry+IAutoRecreatedInvoker, Xamarin.AndroidX.SavedState" managed-type-token-id="33554444" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$SavedStateProvider" managed-name="AndroidX.SavedState.SavedStateRegistry+ISavedStateProvider, Xamarin.AndroidX.SavedState" skip-in-java-to-managed="True" managed-type-token-id="33554445" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$SavedStateProvider" managed-name="AndroidX.SavedState.SavedStateRegistry+ISavedStateProviderInvoker, Xamarin.AndroidX.SavedState" managed-type-token-id="33554446" />
+    <entry java-name="androidx/savedstate/SavedStateRegistryController" managed-name="AndroidX.SavedState.SavedStateRegistryController, Xamarin.AndroidX.SavedState" managed-type-token-id="33554440" />
+    <entry java-name="androidx/savedstate/SavedStateRegistryController$Companion" managed-name="AndroidX.SavedState.SavedStateRegistryController+Companion, Xamarin.AndroidX.SavedState" managed-type-token-id="33554447" />
+    <entry java-name="androidx/savedstate/ViewTreeSavedStateRegistryOwner" managed-name="AndroidX.SavedState.ViewTreeSavedStateRegistryOwner, Xamarin.AndroidX.SavedState" managed-type-token-id="33554441" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="androidx/savedstate/SavedStateRegistryOwner" managed-name="AndroidX.SavedState.ISavedStateRegistryOwner, Xamarin.AndroidX.SavedState" skip-in-java-to-managed="True" managed-type-token-id="33554437" />
+    <entry java-name="androidx/savedstate/SavedStateRegistryOwner" managed-name="AndroidX.SavedState.ISavedStateRegistryOwnerInvoker, Xamarin.AndroidX.SavedState" managed-type-token-id="33554438" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry" managed-name="AndroidX.SavedState.SavedStateRegistry, Xamarin.AndroidX.SavedState" managed-type-token-id="33554439" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$AutoRecreated" managed-name="AndroidX.SavedState.SavedStateRegistry+IAutoRecreated, Xamarin.AndroidX.SavedState" skip-in-java-to-managed="True" managed-type-token-id="33554443" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$AutoRecreated" managed-name="AndroidX.SavedState.SavedStateRegistry+IAutoRecreatedInvoker, Xamarin.AndroidX.SavedState" managed-type-token-id="33554444" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$SavedStateProvider" managed-name="AndroidX.SavedState.SavedStateRegistry+ISavedStateProvider, Xamarin.AndroidX.SavedState" skip-in-java-to-managed="True" managed-type-token-id="33554445" />
+    <entry java-name="androidx/savedstate/SavedStateRegistry$SavedStateProvider" managed-name="AndroidX.SavedState.SavedStateRegistry+ISavedStateProviderInvoker, Xamarin.AndroidX.SavedState" managed-type-token-id="33554446" />
+    <entry java-name="androidx/savedstate/SavedStateRegistryController" managed-name="AndroidX.SavedState.SavedStateRegistryController, Xamarin.AndroidX.SavedState" managed-type-token-id="33554440" />
+    <entry java-name="androidx/savedstate/SavedStateRegistryController$Companion" managed-name="AndroidX.SavedState.SavedStateRegistryController+Companion, Xamarin.AndroidX.SavedState" managed-type-token-id="33554447" />
+    <entry java-name="androidx/savedstate/ViewTreeSavedStateRegistryOwner" managed-name="AndroidX.SavedState.ViewTreeSavedStateRegistryOwner, Xamarin.AndroidX.SavedState" managed-type-token-id="33554441" />
+  </managed-to-java>
+</api>

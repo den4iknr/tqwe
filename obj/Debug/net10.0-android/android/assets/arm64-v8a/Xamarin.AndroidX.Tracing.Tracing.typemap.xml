@@ -1,0 +1,8 @@
+<api type="debug" assembly-name="Xamarin.AndroidX.Tracing.Tracing" mvid="ed36709718a5429cbe15e96f5a3ee85b">
+  <java-to-managed>
+    <entry java-name="androidx/tracing/Trace" managed-name="AndroidX.Tracing.Trace, Xamarin.AndroidX.Tracing.Tracing" managed-type-token-id="33554435" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="androidx/tracing/Trace" managed-name="AndroidX.Tracing.Trace, Xamarin.AndroidX.Tracing.Tracing" managed-type-token-id="33554435" />
+  </managed-to-java>
+</api>
