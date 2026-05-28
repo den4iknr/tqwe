@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Cs2DemoViewer.Maui.ViewModels"
+             xmlns:models="clr-namespace:Cs2DemoViewer.Maui.Models"
+             xmlns:views="clr-namespace:Cs2DemoViewer.Maui.Views"
+             x:Class="Cs2DemoViewer.Maui.Views.RoundPage"
+             x:DataType="vm:RoundViewModel"
+             Title="{Binding Round.Number, StringFormat='Раунд {0}'}">
+
+    <Grid RowDefinitions="Auto,*,Auto,Auto">
+
+        <!-- Мини-статус раунда -->
+        <Grid Grid.Row="0" Padding="12,6" ColumnDefinitions="*,Auto,*">
+            <Label Grid.Column="0"
+                   Text="{Binding Demo.CtClan}" FontSize="13" FontAttributes="Bold"
+                   TextColor="{StaticResource TeamCT}" VerticalOptions="Center" />
+            <Label Grid.Column="1"
+                   Text="{Binding Round.ScoreDisplay}" FontSize="16" FontAttributes="Bold"
+                   TextColor="#ffffff" HorizontalOptions="Center" />
+            <Label Grid.Column="2"
+                   Text="{Binding Demo.TClan}" FontSize="13" FontAttributes="Bold"
+                   TextColor="{StaticResource TeamT}" HorizontalOptions="End" VerticalOptions="Center" />
+        </Grid>
+
+        <!-- Карта с игроками — главный элемент -->
+        <Grid Grid.Row="1" Margin="0">
+            <!-- Фон карты -->
+            <Image Source="{Binding MapImageName}"
+                   Aspect="AspectFit"
+                   BackgroundColor="#111122" />
+
+            <!-- Поверх карты — Canvas с позициями игроков -->
+            <!-- Используем GraphicsView (MAUI Canvas) -->
+            <views:MapCanvas x:Name="MapCanvas"
+                             Players="{Binding Players}"
+                             Grenades="{Binding Grenades}"
+                             BombX="{Binding CurrentFrame.BombX}"
+                             BombY="{Binding CurrentFrame.BombY}"
+                             MapSize="{Binding MapSize}" />
+        </Grid>
+
+        <!-- Таймлайн (слайдер) -->
+        <VerticalStackLayout Grid.Row="2" Padding="12,4" Spacing="4">
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Grid.Column="0"
+                       Text="{Binding CurrentFrame.Time, StringFormat='{0:F1}s'}"
+                       TextColor="#aaaacc" FontSize="12" />
+                <Label Grid.Column="1"
+                       Text="{Binding FrameCount, StringFormat='{0} кадров'}"
+                       TextColor="#555577" FontSize="12" />
+            </Grid>
+            <Slider Minimum="0"
+                    Maximum="{Binding FrameCount}"
+                    Value="{Binding FrameIndex}"
+                    MinimumTrackColor="#e94560"
+                    MaximumTrackColor="#333355"
+                    ThumbColor="#e94560" />
+        </VerticalStackLayout>
+
+        <!-- Управление воспроизведением -->
+        <Grid Grid.Row="3" ColumnDefinitions="*,*,*,*,*"
+              Padding="8,4,8,12" ColumnSpacing="8">
+
+            <!-- В начало -->
+            <Button Grid.Column="0" Text="⏮"
+                    Style="{StaticResource SecondaryButton}"
+                    FontSize="18"
+                    Command="{Binding GoToStartCommand}" />
+
+            <!-- Шаг назад -->
+            <Button Grid.Column="1" Text="⏪"
+                    Style="{StaticResource SecondaryButton}"
+                    FontSize="18"
+                    Command="{Binding StepBackCommand}" />
+
+            <!-- Play / Pause -->
+            <Button Grid.Column="2"
+                    Style="{StaticResource PrimaryButton}"
+                    FontSize="18"
+                    Command="{Binding TogglePlayCommand}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsPlaying}" Value="True">
+                        <Setter Property="Text" Value="⏸" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsPlaying}" Value="False">
+                        <Setter Property="Text" Value="▶" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <!-- Шаг вперёд -->
+            <Button Grid.Column="3" Text="⏩"
+                    Style="{StaticResource SecondaryButton}"
+                    FontSize="18"
+                    Command="{Binding StepForwardCommand}" />
+
+            <!-- Убийства / статистика -->
+            <Button Grid.Column="4" Text="📋"
+                    Style="{StaticResource SecondaryButton}"
+                    FontSize="18"
+                    Clicked="ShowKillsClicked" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

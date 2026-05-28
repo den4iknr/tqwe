@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Cs2DemoViewer.Maui.ViewModels"
+             xmlns:models="clr-namespace:Cs2DemoViewer.Maui.Models"
+             x:Class="Cs2DemoViewer.Maui.Views.MainPage"
+             x:DataType="vm:MainViewModel"
+             Title="">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        <!-- Шапка -->
+        <VerticalStackLayout Grid.Row="0" Padding="20,40,20,16" Spacing="4">
+            <Label Text="CS2"
+                   FontSize="36" FontAttributes="Bold"
+                   TextColor="#e94560" HorizontalOptions="Center" />
+            <Label Text="DEMO VIEWER"
+                   FontSize="13" CharacterSpacing="4"
+                   TextColor="#aaaacc" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <!-- Кнопка открыть файл -->
+        <Frame Grid.Row="1" Margin="16,0" Padding="0"
+               BackgroundColor="#1a1a2e" BorderColor="#e94560"
+               CornerRadius="10" HasShadow="True">
+            <Button Text="📂  Открыть .dem файл"
+                    Style="{StaticResource PrimaryButton}"
+                    FontSize="16"
+                    Padding="0,18"
+                    BackgroundColor="Transparent"
+                    TextColor="#e94560"
+                    BorderColor="Transparent"
+                    Command="{Binding OpenFileCommand}" />
+        </Frame>
+
+        <!-- Сообщение об ошибке -->
+        <Label Grid.Row="1" Text="{Binding ErrorText}"
+               TextColor="#ff5555" FontSize="13"
+               Margin="20,8,20,0" IsVisible="{Binding ErrorText, Converter={StaticResource StringToBoolConverter}}"
+               HorizontalTextAlignment="Center" />
+
+        <!-- Загрузка -->
+        <Grid Grid.Row="2" IsVisible="{Binding IsLoading}"
+              VerticalOptions="Center" HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="12" HorizontalOptions="Center">
+                <ActivityIndicator IsRunning="True" Color="#e94560" WidthRequest="40" HeightRequest="40" />
+                <Label Text="{Binding LoadingText}" TextColor="#aaaacc" FontSize="14" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Список недавних -->
+        <Grid Grid.Row="2" IsVisible="{Binding IsLoading, Converter={StaticResource InverseBoolConverter}}">
+            <VerticalStackLayout>
+                <Label Text="НЕДАВНИЕ" FontSize="11" CharacterSpacing="2"
+                       TextColor="#555577" Margin="20,16,20,8" />
+
+                <CollectionView ItemsSource="{Binding RecentDemos}"
+                                EmptyView="Демок ещё не открывали"
+                                Margin="0">
+                    <CollectionView.EmptyViewTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout HorizontalOptions="Center" Margin="0,60,0,0" Spacing="8">
+                                <Label Text="🎮" FontSize="48" HorizontalOptions="Center" />
+                                <Label Text="Демок ещё не открывали"
+                                       TextColor="#555577" FontSize="14" HorizontalOptions="Center" />
+                                <Label Text="Нажми кнопку выше чтобы открыть .dem файл"
+                                       TextColor="#333355" FontSize="12" HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.EmptyViewTemplate>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:RecentDemo">
+                            <Frame Style="{StaticResource CardStyle}" Margin="16,4">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=OpenRecentCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                    <Label Grid.Column="0" Text="🗂" FontSize="28" VerticalOptions="Center" />
+                                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                        <Label Text="{Binding FileName}" TextColor="#ffffff"
+                                               FontSize="14" FontAttributes="Bold" LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding MapName}" TextColor="#4a9eff" FontSize="12" />
+                                        <Label Text="{Binding RoundCount, StringFormat='{0} раундов'}"
+                                               TextColor="#555577" FontSize="11" />
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="2" Text="{Binding TimeAgo}"
+                                           TextColor="#555577" FontSize="11" VerticalOptions="Center" />
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Версия -->
+        <Label Grid.Row="3" Text="v1.0  •  Использует DemoFile.dll"
+               TextColor="#333355" FontSize="10" HorizontalOptions="Center" Margin="0,8" />
+
+    </Grid>
+</ContentPage>

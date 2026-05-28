@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Cs2DemoViewer.Maui.Views"
+       x:Class="Cs2DemoViewer.Maui.AppShell"
+       BackgroundColor="#0d0d1a"
+       FlyoutBehavior="Disabled">
+
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor" Value="#1a1a2e" />
+            <Setter Property="Shell.TabBarForegroundColor" Value="#e94560" />
+            <Setter Property="Shell.TabBarUnselectedColor" Value="#555577" />
+            <Setter Property="Shell.TabBarTitleColor" Value="#e94560" />
+        </Style>
+        <Style TargetType="Shell" ApplyToDerivedTypes="True">
+            <Setter Property="Shell.NavBarHasShadow" Value="True" />
+            <Setter Property="Shell.BackgroundColor" Value="#1a1a2e" />
+            <Setter Property="Shell.ForegroundColor" Value="#ffffff" />
+            <Setter Property="Shell.TitleColor" Value="#ffffff" />
+        </Style>
+    </Shell.Resources>
+
+    <ShellContent
+        Title="CS2 Demo Viewer"
+        ContentTemplate="{DataTemplate views:MainPage}"
+        Route="MainPage" />
+
+</Shell>
