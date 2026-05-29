@@ -1,8 +1,0 @@
-<api type="debug" assembly-name="Xamarin.AndroidX.SavedState.SavedState.Ktx" mvid="850e2cb514a24dd2b5fda95735d9687a">
-  <java-to-managed>
-    <entry java-name="androidx/savedstate/ViewKt" managed-name="AndroidX.SavedState.ViewKt, Xamarin.AndroidX.SavedState.SavedState.Ktx" managed-type-token-id="33554435" />
-  </java-to-managed>
-  <managed-to-java>
-    <entry java-name="androidx/savedstate/ViewKt" managed-name="AndroidX.SavedState.ViewKt, Xamarin.AndroidX.SavedState.SavedState.Ktx" managed-type-token-id="33554435" />
-  </managed-to-java>
-</api>
